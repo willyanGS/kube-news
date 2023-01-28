@@ -1,4 +1,14 @@
-# Projeto kube-news
+# Desafios da "Jornada DevOps de Elite"
+
+Forked do repositório indicado (kube-news), foram adicionados aqui o Dockerfile (para fazer o docker build da imagem) e os manifestos deployment (para aplicar o banco de dados e a aplicação em um cluster k8s local)
+
+##
+##
+
+
+## Projeto base:
+
+### Projeto kube-news
 
 ### Objetivo
 O projeto Kube-news é uma aplicação escrita em NodeJS e tem como objetivo ser uma aplicação de exemplo pra trabalhar com o uso de containers.
