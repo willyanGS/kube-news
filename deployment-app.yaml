@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: webapp-depl
+spec:
+  replicas: 1
+  select:
+    matchLabels:
+      app: webapp
+    template:
+      metadata:
+        labels:
+          app: webapp
+      sepc:
+        containers:
+          - name: webapp
+            image: fabricioveronez/kube-news:v1
+            ports:
+            - containerPort: 8080
+            env:
+            - name: DB_DATABASE
+              value: "kubenews"
+            - name: DB_USERNAME
+              value: "kubenews"
+            - name: DB_PASSWORD
+              value: "kube123"
+            - name: DB_HOST
+              value: "postgre-serv"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: webapp-serv
+spec:
+  selector:
+    app: webapp
+  ports:
+    - port: 80
+      targetPort: 8080
+      nodePort: 30000
+  type: NodePort
+  
